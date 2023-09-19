@@ -1,10 +1,10 @@
 import Layout from '../components/layout';
-import { getAllIds, getData } from '../lib/data';
+import { getAllIds, maxData } from '../lib/restData';
 
 // define a getStaticProps() function to have next.js retrieve data to use for the dynamic page
 // - this name is defined by next.js
-export async function getStaticProps( { params } ) {
-  const itemData = await getData(params.id);
+export async function getStaticProps({ params }) {
+  const itemData = await maxData(params.id);
   return {
     props: {
       itemData
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 // export our dynamically routed page component Entry
-export default function Entry( { itemData } ) {
+export default function Entry({ itemData }) {
   return (
     <Layout>
       <article className="card col-6">
