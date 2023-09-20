@@ -22,7 +22,7 @@ export default function Layout({ children, home }) {
       )
       }
       <footer>
-        <p>The Footer</p>
+        <p> The Footer</p>
       </footer>
     </div>
   )
