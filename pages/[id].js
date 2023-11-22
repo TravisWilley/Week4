@@ -3,35 +3,39 @@ import { getAllIds, getData } from '../lib/data';
 
 // define a getStaticProps() function to have next.js retrieve data to use for the dynamic page
 // - this name is defined by next.js
-export async function getStaticProps( { params } ) {
+export async function getStaticProps({ params }) {
   const itemData = await getData(params.id);
   return {
     props: {
-      itemData
-    }
+      itemData,
+    },
   };
 }
 
-// define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4 
+// define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4
 // - this name is defined by next.js
 export async function getStaticPaths() {
   const paths = getAllIds();
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 }
 
 // export our dynamically routed page component Entry
-export default function Entry( { itemData } ) {
+export default function Entry({ itemData }) {
   return (
     <Layout>
       <article className="card col-6">
         <div className="card-body">
           <h5 className="card-title">{itemData.name}</h5>
-          <h6 className="card-subtitle mb-2 text-body-secondary">{itemData.phone}</h6>
+          <h6 className="card-subtitle mb-2 text-body-secondary">
+            {itemData.phone}
+          </h6>
           <p className="card-text">{itemData.birthdate}</p>
-          <a href="#" className="card-link">{itemData.email}</a>
+          <a href="#" className="card-link">
+            {itemData.email}
+          </a>
         </div>
       </article>
     </Layout>

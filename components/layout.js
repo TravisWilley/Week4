@@ -9,21 +9,18 @@ export default function Layout({ children, home }) {
       </Head>
       <header>
         <nav>
-          <a href='http://www.santarosa.edu'>Visit SRJC</a>
+          <a href="http://www.santarosa.edu">Visit SRJC</a>
         </nav>
       </header>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       {!home && (
-        <Link href='/' className='btn btn-primary mt-3'>
+        <Link href="/" className="btn btn-primary mt-3">
           Back to Home
         </Link>
-      )
-      }
+      )}
       <footer>
         <p> The Footer</p>
       </footer>
     </div>
-  )
+  );
 }
